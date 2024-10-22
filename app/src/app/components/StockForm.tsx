@@ -1,3 +1,4 @@
+'use client'
 import { useState } from 'react';
 import { Stock } from '../types/Stock';
 
@@ -39,13 +40,13 @@ const StockForm: React.FC<StockFormProps> = ({ stock }) => {
         />
       </div>
       <div className="mb-4">
-        <label className="block mb-2">Price</label>
-        <input
+        <label className="block mb-2 ">Price</label>
+        <input 
           name="price"
           type="number"
           value={formData.price}
           onChange={handleChange}
-          className="border p-2 rounded w-full"
+          className="border p-2 rounded w-full text-black"
           required
         />
       </div>
@@ -56,7 +57,7 @@ const StockForm: React.FC<StockFormProps> = ({ stock }) => {
           type="number"
           value={formData.quantity}
           onChange={handleChange}
-          className="border p-2 rounded w-full"
+          className="border p-2 rounded w-full text-black"
         />
       </div>
       <button className="bg-green-500 text-white p-2 rounded" type="submit">

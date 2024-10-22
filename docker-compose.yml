@@ -1,0 +1,29 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:13-alpine
+    container_name: postgres
+    environment:
+      POSTGRES_USER: stock_admin
+      POSTGRES_PASSWORD: your_password
+      POSTGRES_DB: stock_manager
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+
+  nextjs:
+    build: .
+    container_name: nextjs
+    ports:
+      - "3000:3000"
+    environment:
+      DATABASE_URL: postgres://stock_admin:your_password@postgres:5432/stock_manager
+    depends_on:
+      - postgres
+    volumes:
+      - .:/app
+    command: npm run dev
+
+volumes:
+  pgdata:

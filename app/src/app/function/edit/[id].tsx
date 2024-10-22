@@ -1,3 +1,4 @@
+'use client'
 import { useRouter } from 'next/router';
 import StockForm from '../../components/StockForm';
 import { Stock } from '../../types/Stock';
